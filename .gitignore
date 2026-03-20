@@ -68,7 +68,6 @@ logs/
 
 # Docker
 *.env
-*.env.*
 .docker/
 .dockerignore
 
