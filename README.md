@@ -3,9 +3,11 @@
 This project is a data engineering pipeline for extracting, transforming, and loading (ETL) weather data using Apache Airflow, Docker Compose, and Streamlit for visualization.
 
 ## Features
-- **Automated ETL**: Scheduled extraction of weather data from an API, transformation, and loading into a PostgreSQL database using Airflow DAGs.
+- **Automated Hourly ETL**: Runs every hour (`0 * * * *`) to extract, preprocess/clean, transform, and load weather data into PostgreSQL.
+- **Data Preprocessing**: Cleans and validates key fields (numeric parsing, range filtering, text normalization) before transformation and loading.
+- **Upsert Loading**: Uses conflict-aware loading on `(location_name, observed_at)` so reruns update existing records instead of creating duplicates.
 - **Containerized Stack**: All services (Airflow, Postgres, Redis, Streamlit) run in Docker containers for easy setup and reproducibility.
-- **Weather Dashboard**: Streamlit app for visualizing weather data.
+- **Weather Dashboard**: Streamlit app with richer visuals (line, area, bar, scatter, and map) plus interactive filters.
 
 ## Project Structure
 ```
